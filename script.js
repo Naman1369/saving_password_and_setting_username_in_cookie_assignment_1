@@ -20,4 +20,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // 4. Display the count on the webpage
 
   // your code here
+
+  
+  let count = parseInt(getCookie('count'));
+
+  if (!isNaN(count)) {
+    count += 1;
+  } else {
+    count = 1;
+  }
+
+  setCookie('count', count, 7); // expires in 7 days
+
+  const countDisplay = document.getElementById('count-display');
+  if (countDisplay) {
+    countDisplay.textContent = `Page Load Count: ${count}`;
+  }
 });
